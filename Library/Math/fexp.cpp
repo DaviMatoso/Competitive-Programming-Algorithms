@@ -12,3 +12,15 @@ ll fexp(ll b, ll p){
 	return ans;
 }
 // O(Log P) // b - Base // p - Potência
+
+Matrix<ll> Matfexp(Matrix<ll>& b, ll p){
+    Matrix<ll> ans(b.n);
+    FOR (i,0, b.n) ans.mat[i][i] = 1;
+
+    while(p) {
+        if(p&1) ans = ans * b;
+        b = b * b;
+        p >>= 1;
+    }
+    return ans;
+}
