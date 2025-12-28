@@ -1,6 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+const int LIM = 1e6 + 5;
+bool isPrime[LIM];
+
+vector<int> sieve(){
+    memset(isPrime, 1, sizeof isPrime);
+    isPrime[0] = isPrime[1] = false;
+
+    vector<int> primes;
+    FOR(i, 2, LIM) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+            for(int j = i + i; j < LIM; j += i) isPrime[j] = false;
+        }
+    }
+
+    return primes;
+}
+// O(n*log(log n))
+
+
 vector<int> calc_prime(int n){ // O(n log n)
     vector<int> prime(n+1, 1);
     for(int i=2; i<=n; i++) if(prime[i] == i)
