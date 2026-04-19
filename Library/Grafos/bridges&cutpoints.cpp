@@ -86,7 +86,7 @@ void dfs(int v, int p = -1) {
 
 bool check(int x, int y) { return x >= 0 && x < n && y >= 0 && y < m && adj[x][y]; }
 
-void dfsG(pair<int,int> v, pair<int,int> p) {
+void dfsG(pair<int,int> v, pair<int,int> p={-1,-1}) {
     int& vf = v.ff;
     int& vs = v.ss;
     
