@@ -93,6 +93,34 @@ struct Dinic {
 
     }
 
+	// all flow paths
+	void printPath(int maxflow) {
+        ptr = vector<int>(n+1, 0);
+
+        for (int i = 0; i < maxflow; i++) {
+            vector<int> currPath;
+            int u = src;
+            currPath.push_back(u);
+
+            while (u != sink) {
+                for (int& j = ptr[u]; j < adj[u].size(); j++) {
+                    int at = adj[u][j];
+
+                    if (at % 2 == 0 && edges[at].cap == 0){
+                        u = edges[at].v;
+                        currPath.push_back(u);
+                        j++;
+                        break;
+                    }
+                }
+            }
+
+            cout << currPath.size() << br;
+            for(auto&i:currPath) cout << i << ' ';
+            cout << br;
+        }
+    }
+
 	// for bipartite match
 	void printPairs(int lft) {
 		for (int u = 1; u <= lft; u++) {
