@@ -76,6 +76,22 @@ struct Dinic {
 		}
 		return ans;
 	}
+
+	vector<pair<int,int>> MinCut() {
+        vector<pair<int,int>> cut;
+		
+		for (int i = 0; i < edges.size(); i += 2) {
+            int&u = edges[i].u;
+            int&v = edges[i].v;
+
+            if (inCut(u) && !inCut(v)) {
+				cut.emplace_back(u, v);
+            }
+        }
+
+		return cut;
+
+    }
 };
 /*LATEX_DESC_BEGIN***************************
     **Dinic - Max Flow Min Cut**
