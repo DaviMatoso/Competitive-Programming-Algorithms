@@ -92,6 +92,19 @@ struct Dinic {
 		return cut;
 
     }
+
+	// for bipartite match
+	void printPairs(int lft) {
+		for (int u = 1; u <= lft; u++) {
+			for (int edge_id : adj[u]) {
+				if (edge_id % 2 == 0 && edges[edge_id].cap == 0) {
+					int v = edges[edge_id].v;
+					cout << u << " " << v - lft << br;
+				}
+			}
+		}
+	}
+
 };
 /*LATEX_DESC_BEGIN***************************
     **Dinic - Max Flow Min Cut**
