@@ -6,20 +6,20 @@ ll dp[2][19][170];
  
 int limite[19];
 ll digitDP(int idx, int sum, bool flag){
-    if(idx < 0) return sum;
-    if(~dp[flag][idx][sum]) return dp[flag][idx][sum];
+	if(idx < 0) return sum;
+	if(~dp[flag][idx][sum]) return dp[flag][idx][sum];
 
-    dp[flag][idx][sum] = 0; 
+	dp[flag][idx][sum] = 0; 
 	int lm = flag ? limite[idx] : 9;
  
-    for(int i=0; i<=lm; i++)
-        dp[flag][idx][sum] += digitDP(idx-1, sum+i, (flag && i == lm));
+	for(int i=0; i<=lm; i++)
+		dp[flag][idx][sum] += digitDP(idx-1, sum+i, (flag && i == lm));
  
-    return dp[flag][idx][sum];
+	return dp[flag][idx][sum];
 }
 
 ll solve(ll k){
-    memset(dp, -1, sizeof dp);
+	memset(dp, -1, sizeof dp);
 	
 	int sz=0;
 	while(k){

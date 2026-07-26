@@ -6,24 +6,24 @@ using namespace std;
 Returns **twice area of a simple polygon**. area*2 (Shoelace Formula: signed cross product sum)
 BLOCK_DESC_END*/
 ll Area2x(vector<PT>& p){
-  ll area = 0;  
-  for(int i=2; i < p.size(); i++)
-    area += (p[i]-p[0]) % (p[i-1]-p[0]);
-  return abs(area);
+	ll area = 0;  
+	for(int i=2; i < p.size(); i++)
+		area += (p[i]-p[0]) % (p[i-1]-p[0]);
+	return abs(area);
 }
 
 /*BLOCK_DESC_BEGIN 
 Returns if a point is **inside a triangle** (or in the border). 
 BLOCK_DESC_END*/
 bool ptInsideTriangle(PT p, PT a, PT b, PT c){
-  if((b-a) % (c-b) < 0) swap(a, b);
-  if(onSegment(a,b,p)) return 1;
-  if(onSegment(b,c,p)) return 1;
-  if(onSegment(c,a,p)) return 1;
-  bool x = (b-a) % (p-b) < 0;
-  bool y = (c-b) % (p-c) < 0;
-  bool z = (a-c) % (p-a) < 0;
-  return x == y && y == z;  
+	if((b-a) % (c-b) < 0) swap(a, b);
+	if(onSegment(a,b,p)) return 1;
+	if(onSegment(b,c,p)) return 1;
+	if(onSegment(c,a,p)) return 1;
+	bool x = (b-a) % (p-b) < 0;
+	bool y = (c-b) % (p-c) < 0;
+	bool z = (a-c) % (p-a) < 0;
+	return x == y && y == z;  
 }
 
 /*BLOCK_DESC_BEGIN 
@@ -33,10 +33,10 @@ int ptInsidePol(vector<PT>& pol, PT p){
 	int qt = 0;
 	for(int i=0, n=pol.size(); i<n; i++){
 		auto s = pol[i], e=pol[(i+1)%n];
-        
-    if(onSegment(s, e, p)) return 2;        
+
+		if(onSegment(s, e, p)) return 2;        
 		if((s.y < p.y) == (e.y < p.y)) continue;
-        
+
 		qt ^= (s.y < p.y) == (s.cross(p, e) > 0);
 	}
 	return qt != 0;
@@ -78,17 +78,17 @@ vector<PT> polygonCut(const vector<PT>& poly, PT s, PT e){
 Struct is only for lib purpose, copy the code inline.
 BLOCK_DESC_END*/
 struct PolygonAreaPS{
-  int n; vector<ll> ps = {0}; vector<PT> pts;
-  
-  PolygonAreaPS(vector<PT> pts) : pts(pts), n(pts.size()){
-    for(int i=1; i<n; i++)
-      ps.push_back(ps.back() + pts[i-1] % pts[i]);
-  }
+	int n; vector<ll> ps = {0}; vector<PT> pts;
 
-  ll getArea(int l, int r){
-      if(l <= r) return ps[r] - ps[l] + pts[r] % pts[l];
-      return getArea(0, n-1) - getArea(r, l);
-  }
+	PolygonAreaPS(vector<PT> pts) : pts(pts), n(pts.size()){
+		for(int i=1; i<n; i++)
+		ps.push_back(ps.back() + pts[i-1] % pts[i]);
+	}
+
+	ll getArea(int l, int r){
+		if(l <= r) return ps[r] - ps[l] + pts[r] % pts[l];
+		return getArea(0, n-1) - getArea(r, l);
+	}
 };
 
 /*BLOCK_DESC_BEGIN 
@@ -98,7 +98,7 @@ Area = insidePts + boundPts/2 - 1
 BLOCK_DESC_END*/
 ll cntInsidePts(ll area_db, ll bound){ return (area_db + 2LL - bound)/2; }
 ll latticePointsInSeg(PT a, PT b){
-  ll dx = abs(a.x - b.x);
-  ll dy = abs(a.y - b.y);
-  return gcd(dx, dy) + 1;
+	ll dx = abs(a.x - b.x);
+	ll dy = abs(a.y - b.y);
+	return gcd(dx, dy) + 1;
 }
