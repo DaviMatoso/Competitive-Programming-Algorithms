@@ -5,7 +5,7 @@ set -e
 g++ -std=c++17 -o genLatex generate_latex.cpp -O2 -lcrypto
 ./genLatex
 
-miktex-pdflatex -halt-on-error -file-line-error notebook.tex
+miktex-pdflatex -halt-on-error -file-line-error notebook.tex # another latex command? Change it here
 miktex-pdflatex -halt-on-error -file-line-error notebook.tex
 mv notebook.pdf ../Notebook.pdf
 rm contents.tex
