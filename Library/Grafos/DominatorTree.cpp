@@ -91,7 +91,7 @@ auto edgeDominator(vector<int>&nodes){
 }
 
 /*LATEX_DESC_BEGIN***************************
-**Dominator Tree & Edge Dominator**
+**Dominator Tree** & **Edge Dominator**
 
 Seja S um nó de um grafo direcionado, um vértice U domina V sse todo caminho de S para V passa por U.
 A definição é semelhante para aresta. 
