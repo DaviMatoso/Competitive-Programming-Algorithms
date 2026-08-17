@@ -12,8 +12,8 @@ If you want colinear points in border, change the >=0 to >0 in the while's.
 **WARNING:**if collinear and all input PT are collinear, may have duplicated points (the round trip)
 *****************************LATEX_DESC_END*/
 
-vector<PT> ConvexHull(vector<PT> pts, bool sorted=false){
-	if(!sorted) sort(begin(pts), end(pts));
+vector<PT> ConvexHull(vector<PT> pts){
+	sort(begin(pts), end(pts));
 	pts.resize(unique(begin(pts), end(pts)) - begin(pts));
 	if(pts.size() <= 1) return pts;
 

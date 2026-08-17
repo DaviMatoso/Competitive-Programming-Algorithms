@@ -2,7 +2,6 @@ This repository contains my personal solutions and code library for competitive 
 
 To generate a new PDF see [PDF](./pdf/README.md).
 
-
 <hr>
 
 ## Index
@@ -13,6 +12,7 @@ To generate a new PDF see [PDF](./pdf/README.md).
 - [BIT](./Library/Data%20Structures/BIT.cpp)
 - [BIT2D](./Library/Data%20Structures/BIT2D.cpp)
 - [BIT2DSparse](./Library/Data%20Structures/BIT2DSparse.cpp)
+- [MinQueue](./Library/Data%20Structures/MinQueue.cpp)
 - [PrefixSum2D](./Library/Data%20Structures/PrefixSum2D.cpp)
 - [SegTree](./Library/Data%20Structures/SegTree.cpp)
 - [SegTreeIterativa](./Library/Data%20Structures/SegTreeIterativa.cpp)
@@ -20,19 +20,23 @@ To generate a new PDF see [PDF](./pdf/README.md).
 - [SegTreeLazyIterativa](./Library/Data%20Structures/SegTreeLazyIterativa.cpp)
 - [SegTreePersistente](./Library/Data%20Structures/SegTreePersistente.cpp)
 - [SegTreePersistente2x](./Library/Data%20Structures/SegTreePersistente2x.cpp)
+- [SegTreeSparse](./Library/Data%20Structures/SegTreeSparse.cpp)
+- [SegTreeSparseLazy](./Library/Data%20Structures/SegTreeSparseLazy.cpp)
 - [SparseTable](./Library/Data%20Structures/SparseTable.cpp)
 - [orderedSet](./Library/Data%20Structures/orderedSet.cpp)
 
-### Strings
+### Geometry
 
-- [KMP](./Library/Strings/KMP.cpp)
-- [Manacher](./Library/Strings/Manacher.cpp)
-- [SuffixArray](./Library/Strings/SuffixArray.cpp)
-- [Z-Function](./Library/Strings/Z-Function.cpp)
-- [ahoCorasick](./Library/Strings/ahoCorasick.cpp)
-- [hash](./Library/Strings/hash.cpp)
-- [hash2](./Library/Strings/hash2.cpp)
-- [trie](./Library/Strings/trie.cpp)
+- [3D](./Library/Geometry/3D.cpp)
+- [Circles](./Library/Geometry/Circles.cpp)
+- [ConvexHull](./Library/Geometry/ConvexHull.cpp)
+- [Line](./Library/Geometry/Line.cpp)
+- [LineContainer](./Library/Geometry/LineContainer.cpp)
+- [Minkowski](./Library/Geometry/Minkowski.cpp)
+- [Point](./Library/Geometry/Point.cpp)
+- [Polygons](./Library/Geometry/Polygons.cpp)
+- [Segment](./Library/Geometry/Segment.cpp)
+- [quadtree](./Library/Geometry/quadtree.cpp)
 
 ### Grafos
 
@@ -44,6 +48,7 @@ To generate a new PDF see [PDF](./pdf/README.md).
 - [DSU](./Library/Grafos/DSU.cpp)
 - [Dijkstra](./Library/Grafos/Dijkstra.cpp)
 - [Dinic](./Library/Grafos/Dinic.cpp)
+- [DominatorTree](./Library/Grafos/DominatorTree.cpp)
 - [Euler Path](./Library/Grafos/Euler%20Path.cpp)
 - [HLD](./Library/Grafos/HLD.cpp)
 - [Kruskal](./Library/Grafos/Kruskal.cpp)
@@ -53,23 +58,12 @@ To generate a new PDF see [PDF](./pdf/README.md).
 - [Tarjan](./Library/Grafos/Tarjan.cpp)
 
 
-### Geometry
+### DP
 
-- [Circles](./Library/Geometry/Circles.cpp)
-- [ConvexHull](./Library/Geometry/ConvexHull.cpp)
-- [Line](./Library/Geometry/Line.cpp)
-- [LineContainer](./Library/Geometry/LineContainer.cpp)
-- [Minkowski](./Library/Geometry/Minkowski.cpp)
-- [Point](./Library/Geometry/Point.cpp)
-- [Poligons](./Library/Geometry/Poligons.cpp)
-- [Segment](./Library/Geometry/Segment.cpp)
-
-### dp
-
-- [Digit DP](./Library/dp/Digit%20DP.cpp)
-- [LCS](./Library/dp/LCS.cpp)
-- [LIS](./Library/dp/LIS.cpp)
-- [SOS DP](./Library/dp/SOS%20DP.cpp)
+- [Digit DP](./Library/DP/Digit%20DP.cpp)
+- [LCS](./Library/DP/LCS.cpp)
+- [LIS](./Library/DP/LIS.cpp)
+- [SOS DP](./Library/DP/SOS%20DP.cpp)
 
 ### Math
 
@@ -78,19 +72,35 @@ To generate a new PDF see [PDF](./pdf/README.md).
 - [FFT](./Library/Math/FFT.cpp)
 - [FFTmod](./Library/Math/FFTmod.cpp)
 - [FWHT](./Library/Math/FWHT.cpp)
+- [GaussElimin](./Library/Math/GaussElimin.cpp)
+- [Matrix](./Library/Math/Matrix.cpp)
 - [NTT](./Library/Math/NTT.cpp)
 - [Sieve](./Library/Math/Sieve.cpp)
+- [StirlingNumbers](./Library/Math/StirlingNumbers.cpp)
 - [fexp](./Library/Math/fexp.cpp)
 - [mint](./Library/Math/mint.cpp)
 - [random](./Library/Math/random.cpp)
-- [template](./Library/Math/template.cpp)
 
+### Others
 
-### others
+- [BuscaBinariaParalela](./Library/Others/BuscaBinariaParalela.cpp)
+- [BuscaTernaria](./Library/Others/BuscaTernaria.cpp)
+- [Date](./Library/Others/Date.cpp)
+- [Dice](./Library/Others/Dice.cpp)
+- [Hungarian](./Library/Others/Hungarian.cpp)
+- [MO](./Library/Others/MO.cpp)
+- [MOTree](./Library/Others/MOTree.cpp)
 
-- [Date](./Library/others/Date.cpp)
-- [Hungarian](./Library/others/Hungarian.cpp)
-- [MO](./Library/others/MO.cpp)
-- [MOTree](./Library/others/MOTree.cpp)
+### Strings
+
+- [KMP](./Library/Strings/KMP.cpp)
+- [Manacher](./Library/Strings/Manacher.cpp)
+- [SuffixArray](./Library/Strings/SuffixArray.cpp)
+- [Z-Function](./Library/Strings/Z-Function.cpp)
+- [ahoCorasick](./Library/Strings/ahoCorasick.cpp)
+- [hash](./Library/Strings/hash.cpp)
+- [hash2](./Library/Strings/hash2.cpp)
+- [hash2A](./Library/Strings/hash2A.cpp)
+- [trie](./Library/Strings/trie.cpp)
 
 <!--- END OF INDEX -->

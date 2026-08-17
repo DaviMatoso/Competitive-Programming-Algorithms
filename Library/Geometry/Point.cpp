@@ -5,7 +5,8 @@ using namespace std;
 
 struct PT {
 	ll x, y;
-	PT(ll x=0, ll y=0) : x(x), y(y) {}
+	PT(ll x, ll y) : x(x), y(y) {}
+	PT() : x(0), y(0){}
 
 	PT operator+(const PT&a)const{return PT(x+a.x, y+a.y);}
 	PT operator-(const PT&a)const{return PT(x-a.x, y-a.y);}
@@ -60,3 +61,23 @@ It equals the signed area of the parallelogram spanned by @$u$@ and @$v$@.
 *****************************LATEX_DESC_END*/
 // CCW -> Counter-ClockWise turn $\Circlearrowleft$ //LATEX_IGNORED_LINE
 // CW  -> ClockWise turn $\Circlearrowright$ //LATEX_IGNORED_LINE
+
+/*LATEX_IGNORED_BEGIN***************************
+
+Dot product | p * q | u * v = |u|*|v|*cos(𝛉)  (inner product | norm | lenght^2)
++  u * v > 0   ⮚  angle 𝛉 < 90° (acute);          ⦞
++  u * v = 0   ⮚  angle 𝛉 = 90° (perpendicular);  ⦜
++  u * v < 0   ⮚  angle 𝛉 > 90° (obtuse);         ⦦
+
+Cross product | p % q | u % v = |u|*|v|*sin(𝛉)  (Vector product | Determinant )
++  u % v > 0   ⮚  v is left from u       ↶ ⤺ 
++  u % v = 0   ⮚  u and v are collinear. 
++  u % v < 0   ⮚  v is right from u      ↷ ⭮
+It equals the signed area of the parallelogram spanned by u and v.
+
+> p.cross(a, b) = (a-p) % (b-p)   
+  c  > 0  ⮚  CCW (left); ⤽ ⭯
+  c == 0  ⮚  collinear;  ￪       
+  c  < 0  ⮚  CW (right); ⤼ ⭮
+
+*****************************LATEX_IGNORED_END*/

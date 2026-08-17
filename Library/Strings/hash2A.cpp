@@ -10,27 +10,27 @@ array<ll, 2> expb[MAXN];
 
 #warning "Call precalc() before use StringHash"
 void precalc(){ 
-    expb[0][0] = expb[0][1] = 1;
-    
+	expb[0][0] = expb[0][1] = 1;
+	
 	for(int i=1, j;i<MAXN;i++) for(j=1; ~j; j--)
-        expb[i][j] = expb[i-1][j]*base % mod[j];
+		expb[i][j] = expb[i-1][j]*base % mod[j];
 }
 
 struct StringHash{
-    vector<array<ll,2>> hsh;
-    string s; // comment S if you dont need it
+	vector<array<ll,2>> hsh;
+	string s; // comment S if you dont need it
 
-    StringHash(string& s) : s(s){ 
-        hsh.assign(s.size()+1, {0,0});
+	StringHash(string& s) : s(s){ 
+		hsh.assign(s.size()+1, {0,0});
 
-        for(int i=0, j;i<s.size();i++) for(j=1; ~j; j--)
-            hsh[i+1][j] = ( hsh[i][j]*base + s[i] ) % mod[j];
-    }
-    ll gethash(int a,int b){
-        ll h1 = (mod[0]+ hsh[b+1][0] - hsh[a][0]*expb[b-a+1][0] % mod[0]) % mod[0];
-        ll h2 = (mod[1]+ hsh[b+1][1] - hsh[a][1]*expb[b-a+1][1] % mod[1]) % mod[1];
-        return (h1<<32) | h2;
-    }
+		for(int i=0, j;i<s.size();i++) for(j=1; ~j; j--)
+			hsh[i+1][j] = ( hsh[i][j]*base + s[i] ) % mod[j];
+	}
+	ll gethash(int a,int b){
+		ll h1 = (mod[0]+ hsh[b+1][0] - hsh[a][0]*expb[b-a+1][0] % mod[0]) % mod[0];
+		ll h2 = (mod[1]+ hsh[b+1][1] - hsh[a][1]*expb[b-a+1][1] % mod[1]) % mod[1];
+		return (h1<<32) | h2;
+	}
 };
 
 // OPTIONAL

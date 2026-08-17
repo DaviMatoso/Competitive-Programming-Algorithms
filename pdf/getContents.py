@@ -19,15 +19,16 @@ note = f'''
 '''
 print(note)
 
-for dir in os.listdir(code_dir):
+for dir in sorted(os.listdir(code_dir)):
     if(os.path.isfile(os.path.join(code_dir, dir))): continue
     files = os.listdir(os.path.join(code_dir, dir))
     if(len(files) == 0): continue
+    files = sorted(files)
     
     print(f'[{dir}]')
     longestPath = max([len(arquivo) if '.exe' not in arquivo else 0 for arquivo in files])
     for arquivo in files:
-        if('.exe' in arquivo): continue
+        if('.exe' in arquivo or '.out' in arquivo): continue
         print(f"{code_dir}/{dir}/{arquivo} {' '*(longestPath-len(arquivo))} {div_char} {arquivo.split('.')[0]}")
                 
     print()

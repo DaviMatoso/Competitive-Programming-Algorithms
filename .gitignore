@@ -13,3 +13,5 @@ texput.fls
 Notebook.pdf
 pdf/temp
 *.exe
+a.out
+genLatex

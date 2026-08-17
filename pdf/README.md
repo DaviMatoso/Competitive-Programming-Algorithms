@@ -1,3 +1,11 @@
+## ↘️  Importando esse Código
+
+Execute esse comando na pasta parent da sua lib, ele vai criar uma pasta pdf com todos os códigos necessários para gerar o arquivo pdf.
+
+```bash
+git clone --depth=1 --filter=blob:none --sparse https://github.com/SamuellH12/Competitive-Programming-Algorithms.git temp && cd temp && git sparse-checkout set pdf && cp -r pdf .. && cd .. && rm -rf temp
+```
+
 ## 📄 Gerar PDF
 
 Para gerar o pdf execute o script shell.
@@ -134,3 +142,23 @@ int main(){
 Esse código foi inspirado em alguns geradores de lib e latex famosos da comunidade, assim como adicionei novas funcionalidades. Sinta-se livre para copiar e modificar esse código também. =]
 
 ## 🦕🦖
+
+## Problemas comuns
+
+#### - Dependências do Latex.
+
+Provavelmente seu sistema não vai ter todas as dependências do LaTeX instaladas (Como suporte pra português, colorBox, etc), principalmente usando a instalação padrão no linux, então você pode ter que instalar as dependências manualmente. Mas se você estiver usando o [MiKTeX](https://miktex.org/download) as dependências devem aparecer para serem instaladas e deve ser a maneira mais fácil. 
+
+Pode ser preciso mudar o comando de `pdflatex` para `miktex-pdflatex`
+
+Se você conhecer maneiras melhores de instalar essas dependências no linux, abre um PR ou issue aqui por favor, vai ajudar bastante =]
+
+#### - Caracteres de escape dentro das descrições ou códigos
+
+O caractere `@` é um usado para inserir comandos LaTex dentro dos containers de código, então se ele aparecer em comentários ou se for usada alguma combinação estranha com os blocos de descrição o build pode quebrar ou gerar um PDF bugado! Então cuidado com isso. Dá pra mudar o caractere de escape nas configurações do LaTeX se for necessário. 
+
+#### - Colunas em branco
+
+As vezes acontece de uma coluna inteira ficar em branco, só com o título do código e o código em si na próxima coluna (mesmo quando esse caberia perfeitamente).
+
+Não consegui encontrar uma solução pra esse problema ainda. Mas mudar a ordem do conteúdo que tá bugando com algum outro geralmente resolve ou pode ajudar pelo menos. Parece ainda estar relacionado aos blocos de descrição.	
